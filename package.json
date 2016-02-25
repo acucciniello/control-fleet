@@ -1,0 +1,35 @@
+{
+  "name": "cf-web-app",
+  "version": "0.0.1",
+  "description": "tones & frank rule",
+  "main": "app/browser.js",
+  "scripts": {
+    "start": "budo browser/browser.js --open --live",
+    "test": "standard && node test/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acucciniello/control-fleet.git"
+  },
+  "keywords": [
+    "maps"
+  ],
+  "author": "Antonio Cucciniello, Chinedu Francis Nwafili <frankie.nwafili@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/acucciniello/control-fleet/issues"
+  },
+  "homepage": "https://github.com/acucciniello/control-fleet#readme",
+  "dependencies": {
+    "catch-links": "^2.0.0",
+    "ergonomic-viewport": "^1.0.2",
+    "firebase": "^2.4.1",
+    "global": "^4.3.0",
+    "main-loop": "^3.2.0",
+    "routes": "^2.1.0",
+    "single-page": "^1.1.0",
+    "solid-state": "^0.3.0",
+    "virtual-dom": "^2.1.1",
+    "xtend": "^4.0.1"
+  }
+}
