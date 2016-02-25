@@ -14,6 +14,7 @@ function RenderHomePage (h, state) {
     style: homePageStyle
   }, [
     'islang gang 2018.',
+    // TODO: this input doesn't belong here. just thrown in randomly for prototype
     PlaceInput.render(h, state)
   ])
 
