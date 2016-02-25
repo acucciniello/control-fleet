@@ -25,6 +25,7 @@
     "ergonomic-viewport": "^1.0.2",
     "firebase": "^2.4.1",
     "global": "^4.3.0",
+    "google-places-browser": "^1.0.0",
     "main-loop": "^3.2.0",
     "routes": "^2.1.0",
     "single-page": "^1.1.0",
