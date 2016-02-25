@@ -31,5 +31,23 @@
     "solid-state": "^0.3.0",
     "virtual-dom": "^2.1.1",
     "xtend": "^4.0.1"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "browserify-shim": "^3.8.12",
+    "budo": "^8.0.4",
+    "electron-prebuilt": "^0.36.8",
+    "standard": "^6.0.7",
+    "tape": "^4.4.0",
+    "testron": "^1.2.0",
+    "uglify-js": "^2.6.2"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "google": "global:google"
   }
 }
