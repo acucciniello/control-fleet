@@ -17,13 +17,12 @@ function UpdatePlaceInput (AppState, inputObj) {
   function searchPlace (input) {
     // TODO: We shouldn't have any knowledge of the window here
     // should also work if google is undefined (i.e. script didn't load)
-    Autocomplete(window.google).places({input: input}, function (err, results) {
+    Autocomplete(window.google).place({input: input}, function (err, results) {
       if (err) {
         // TODO: Proper error handling
         console.log(err)
       } else {
-        // TODO: save results to state
-        console.log(results)
+        AppState.set('places.suggestedPlaces', results)
       }
     })
   }
