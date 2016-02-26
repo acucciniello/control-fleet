@@ -1,4 +1,5 @@
 var EventEmitter = require('events').EventEmitter
+var UpdatePlaceInput = require('./update-place-input/update-place-input.js')
 
 module.exports = InitPlaceEmitter
 
@@ -9,11 +10,3 @@ function InitPlaceEmitter (AppState, EventSink, show) {
   return PlaceEmitter
 }
 
-/*
- * @param inputObj
- * {e: theInputEvent}
- */
-function UpdatePlaceInput (AppState, inputObj) {
-  var newInput = inputObj.e.target.value
-  AppState.set('places.currentPlaceInput', newInput)
-}
