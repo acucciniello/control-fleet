@@ -1,3 +1,8 @@
+// Temporary variable reference so that when our google map script loads
+// we can start using the maps object. Without this `require('google')`
+// would be undefined
+// TODO: document this
+require('global/window').google = {temporary: 'property'}
 var makeResponsive = require('./responsive/make-responsive.js')
 var initializeState = require('./initial-state/initialize-state.js')
 var initSinglePageApp = require('./single-page/init-single-page-app.js')
@@ -24,7 +29,9 @@ function InitApp (initialState, onStateChange) {
   initEventEmitters(AppState, EventSink, show)
 
   require('catch-links')(appElement, show)
-  injectScripts()
+  injectScripts(function () {
+    loop.update(AppState.get())
+  })
 
   return {
     element: appElement

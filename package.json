@@ -22,6 +22,7 @@
   "homepage": "https://github.com/acucciniello/control-fleet#readme",
   "dependencies": {
     "catch-links": "^2.0.0",
+    "cuid": "^1.3.8",
     "ergonomic-viewport": "^1.0.2",
     "firebase": "^2.4.1",
     "global": "^4.3.0",

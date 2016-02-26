@@ -1,6 +1,7 @@
 var style = require('./home-page_style.js')
 
 var PlaceInput = require('./place-input/place-input.js')
+var GoogleMap = require('./map/map.js')
 
 module.exports = {
   render: RenderHomePage
@@ -15,7 +16,8 @@ function RenderHomePage (h, state) {
   }, [
     'islang gang 2018.',
     // TODO: this input doesn't belong here. just thrown in randomly for prototype
-    PlaceInput.render(h, state)
+    PlaceInput.render(h, state),
+    GoogleMap.render(h, state)
   ])
 
   return renderedHomePage
