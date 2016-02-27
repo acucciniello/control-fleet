@@ -26,6 +26,15 @@ function RenderHomePage (h, state) {
     PlaceInput.render(h, state),
     renderedPlaceList,
     GoogleMap.render(h, state),
+    h('button', {
+      style: {
+        width: '200px',
+        height: '100px',
+        fontSize: '1em',
+        backgroundColor: 'red',
+        color: 'white'
+      }
+    }, 'Calculate cheapest route'),
     renderedDestinationList
   ])
 
