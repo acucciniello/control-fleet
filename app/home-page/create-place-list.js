@@ -2,7 +2,7 @@ var PlaceButton = require('./place-button/place-button.js')
 
 module.exports = CreatePlaceList
 
-function CreatePlaceList (h, places, state) {
+function CreatePlaceList (h, state, places) {
   places = places || {}
   var renderedPlaceList = []
   Object.keys(places).forEach(function (key) {

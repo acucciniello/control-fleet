@@ -10,7 +10,6 @@ function InitGelocation () {
       console.log('handle error')
       return
     }
-    console.log(position)
     AppState.set('user.position', position)
   })
 }
