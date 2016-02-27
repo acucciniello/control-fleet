@@ -22,6 +22,8 @@ MapHook.prototype.hook = function (node, propertyName, previousValue) {
       center: {lat: 40.278433, lng: -74.779445},
       zoom: 19
     })
+
+    // Create waypoints
     Object.keys(waypoints).forEach(function (waypointKey) {
       var waypoint = waypoints[waypointKey]
       var geoLocation = waypoint.geometry.location
@@ -32,6 +34,33 @@ MapHook.prototype.hook = function (node, propertyName, previousValue) {
       bounds.extend(marker.position)
     })
     map.fitBounds(bounds)
+
+    // Draw route
+    if (Object.keys(waypoints).length > 2) {
+      var directionsDisplay = new google.maps.DirectionsRenderer()
+      var southOrange = {lat: 40.7488889, lng: -74.2616667}
+      var directionWaypoints = []
+      Object.keys(waypoints).forEach(function (waypointKey) {
+        var geoLocation = waypoints[waypointKey].geometry.location
+        directionWaypoints.push({
+          location: {lat: geoLocation.lat(), lng: geoLocation.lng()},
+          stopover: false
+        })
+      })
+      var directionRequest = {
+        origin: southOrange,
+        destination: southOrange,
+        waypoints: directionWaypoints,
+        travelMode: maps.TravelMode.DRIVING
+      }
+      var directionsService = new google.maps.DirectionsService()
+      directionsDisplay.setMap(map)
+      directionsService.route(directionRequest, function (result, status) {
+        if (status === google.maps.DirectionsStatus.OK) {
+          directionsDisplay.setDirections(result)
+        }
+      })
+    }
   }
 }
 
