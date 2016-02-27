@@ -2,7 +2,8 @@ var style = require('./home-page_style.js')
 
 var PlaceInput = require('./place-input/place-input.js')
 var GoogleMap = require('./map/map.js')
-var CreatePlaceList = require('./create-place-list.js')
+var createPlaceList = require('./create-place-list.js')
+var createDestinationList = require('./create-destination-list.js')
 
 module.exports = {
   render: RenderHomePage
@@ -12,7 +13,9 @@ function RenderHomePage (h, state) {
   var homePageStyle = style[state.viewport] || style.base
 
   var suggestedPlaces = state.places && state.places.suggestedPlaces
-  var renderedPlaceList = CreatePlaceList(h, state, suggestedPlaces)
+  var renderedPlaceList = createPlaceList(h, state, suggestedPlaces)
+  var waypoints = state.places && state.places.waypoints
+  var renderedDestinationList = createDestinationList(h, state, waypoints)
 
   var renderedHomePage = h('div', {
     attributes: { filepath: __filename },
@@ -22,7 +25,8 @@ function RenderHomePage (h, state) {
     // TODO: this input doesn't belong here. just thrown in randomly for prototype
     PlaceInput.render(h, state),
     renderedPlaceList,
-    GoogleMap.render(h, state)
+    GoogleMap.render(h, state),
+    renderedDestinationList
   ])
 
   return renderedHomePage
