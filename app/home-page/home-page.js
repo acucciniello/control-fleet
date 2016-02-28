@@ -35,6 +35,16 @@ function RenderHomePage (h, state) {
         color: 'white'
       }
     }, 'Calculate cheapest route'),
+    h('button', {
+      style: {
+        width: '200px',
+        height: '100px',
+        fontSize: '1em',
+        backgroundColor: 'green',
+        color: 'white'
+      }
+    }, 'Send to Driver'),
+
     renderedDestinationList
   ])
 
