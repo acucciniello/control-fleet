@@ -38,19 +38,24 @@ MapHook.prototype.hook = function (node, propertyName, previousValue) {
     // Draw route
     if (Object.keys(waypoints).length > 2) {
       var directionsDisplay = new google.maps.DirectionsRenderer()
-      var southOrange = {lat: 40.7488889, lng: -74.2616667}
+      var origin
       var directionWaypoints = []
       Object.keys(waypoints).forEach(function (waypointKey) {
         var geoLocation = waypoints[waypointKey].geometry.location
+        var location = {lat: geoLocation.lat(), lng: geoLocation.lng()}
+        if (!origin) {
+          origin = location
+        }
         directionWaypoints.push({
-          location: {lat: geoLocation.lat(), lng: geoLocation.lng()},
+          location: location,
           stopover: false
         })
       })
       var directionRequest = {
-        origin: southOrange,
-        destination: southOrange,
+        origin: origin,
+        destination: origin,
         waypoints: directionWaypoints,
+        optimizeWaypoints: true,
         travelMode: maps.TravelMode.DRIVING
       }
       var directionsService = new google.maps.DirectionsService()
