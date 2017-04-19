@@ -5,6 +5,7 @@ module.exports = RenderApp
 
 function RenderApp (state) {
   var match = viewRouter.match(state.path)
+  console.log(match)
   if (match) {
     state.params = match.params
     return match.fn(h, state)
