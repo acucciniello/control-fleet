@@ -4,7 +4,7 @@
   "description": "tones & frank rule",
   "main": "app/browser.js",
   "scripts": {
-    "start": "budo browser/browser.js --open --live",
+    "start": "budo browser/browser.js --open --live --pushstate",
     "test": "standard && node test/index.js"
   },
   "repository": {

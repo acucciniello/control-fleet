@@ -16,10 +16,8 @@ function InitApp (initialState, onStateChange) {
   var AppState = initializeState(initialState)
   // creates a loop object with some inital state, render function + options
   var loop = initRenderLoop(AppState.get())
-  console.log(loop)
   // sets appElement to main loop root DOM element, this element will be inserted into the page
   var appElement = loop.target
-  console.log(appElement)
   // register event handlers when there is a new state with loop.update
   AppState.addListener(loop.update)
   // set the viewport of the page
