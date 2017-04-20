@@ -11,6 +11,5 @@ var defaultState = {
 function InitializeState (initialState) {
   initialState = extend(defaultState, initialState)
   var AppState = new SS(initialState)
-  console.log(AppState)
   return AppState
 }
